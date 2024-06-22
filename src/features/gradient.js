@@ -1,24 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import getGradientCSSValue from "../utils/getGradientCSSValue";
-
-console.log(
-  getGradientCSSValue({
-    colors: [
-      {
-        id: 1,
-        value: "#ff0000",
-        position: 20,
-      },
-      {
-        id: 2,
-        value: "#e09ca7",
-        position: 50,
-      },
-    ],
-    pickedColorId: 1,
-    angle: 60,
-  })
-);
+//import getGradientCSSValue from "../utils/getGradientCSSValue";
 
 const initialState = {
   colors: [
@@ -60,7 +41,11 @@ export const gradientSlice = createSlice({
 
       state.colors.pop();
     },
+    updateAngle: (state, action) => {
+      state.angle = action.payload;
+    },
   },
 });
 export default gradientSlice.reducer;
-export const { updateColor, addColor, removeColor } = gradientSlice.actions;
+export const { updateColor, addColor, removeColor, updateAngle } =
+  gradientSlice.actions;

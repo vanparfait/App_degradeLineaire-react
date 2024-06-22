@@ -1,6 +1,6 @@
 import React from "react";
 import getGradientCSSValue from "./utils/getGradientCSSValue";
-import gradient from "./features/gradient";
+
 import { useSelector } from "react-redux";
 
 const Gradient = () => {
