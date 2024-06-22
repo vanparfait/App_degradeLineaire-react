@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAngle } from "../features/gradient";
+import { updateAngle } from "../../features/gradient";
 
 const RangeAngle = () => {
   const dispatch = useDispatch();

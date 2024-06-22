@@ -2,7 +2,9 @@ import { useSelector } from "react-redux";
 import Gradient from "./Gradient";
 import ColorInput from "./components/inputs/ColorInput";
 import AddRemoveColor from "./components/AddRemoveColor";
-import RangeAngle from "./components/RangeAngle";
+import RangeAngle from "./components/inputs/RangeAngle";
+import SelectColor from "./components/inputs/SelectColor";
+import RangeColorPosition from "./components/inputs/RangeColorPosition";
 
 function App() {
   const gradientValue = useSelector((state) => state.gradient);
@@ -28,11 +30,11 @@ function App() {
           <AddRemoveColor action="remove" sign="-" />
         </div>
         <p>Pick and change a color position's</p>
-        {/* select color */}
+        <SelectColor />
 
         <p>color's position</p>
 
-        {/* range color */}
+        <RangeColorPosition />
         <p>Gradient global angle</p>
         <RangeAngle />
 
