@@ -4,7 +4,7 @@ const initialState = {
   colors: [
     {
       id: 1,
-      value: "#yav67",
+      value: "#ff0000",
       position: 20,
     },
     {
@@ -17,9 +17,17 @@ const initialState = {
   angle: 60,
 };
 
-const gradientSlice = createSlice({
+export const gradientSlice = createSlice({
   name: "gradient",
   initialState,
-  reducers: {},
+  reducers: {
+    updateColor: (state, action) => {
+      const currentColor = state.colors.find(
+        (color) => color.id === action.payload.id
+      );
+      currentColor.value = action.payload.value;
+    },
+  },
 });
 export default gradientSlice.reducer;
+export const { updateColor } = gradientSlice.actions;
