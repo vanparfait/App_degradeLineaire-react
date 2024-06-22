@@ -27,7 +27,20 @@ export const gradientSlice = createSlice({
       );
       currentColor.value = action.payload.value;
     },
+    addColor: (state, action) => {
+      if (state.colors.length === 5) return;
+      state.colors.push({
+        id: state.colors[state.colors.length - 1].id + 1,
+        value: "#111111",
+        position: 50,
+      });
+    },
+    removeColor: (state, action) => {
+      if (state.colors.length === 2) return;
+
+      state.colors.pop();
+    },
   },
 });
 export default gradientSlice.reducer;
-export const { updateColor } = gradientSlice.actions;
+export const { updateColor, addColor, removeColor } = gradientSlice.actions;
