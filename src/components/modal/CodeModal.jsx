@@ -35,7 +35,7 @@ const CodeModal = ({ closeModal }) => {
             onClick={handleCopy}
             className="ml-auto mr-2 text-sm bg-blue-600 text-white  hover:bg-blue-700 py-1 px-3 rounded"
           >
-            Copy{" "}
+            Copy
           </button>
           <button
             onClick={closeModal}
