@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import getGradientCSSValue from "../../utils/getGradientCSSValue";
+import { useSelector } from "react-redux";
 
 const CodeModal = ({ closeModal }) => {
+  const gradientValue = useSelector((state) => state.gradient);
+
+  function handleCopy() {
+    navigator.clipboard.writeText(
+      `background-image: ${getGradientCSSValue(gradientValue)}`
+    );
+  }
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => (document.body.style.overflow = "visible");
+  }, []);
+
   return (
     <div
       onClick={closeModal}
@@ -15,7 +31,10 @@ const CodeModal = ({ closeModal }) => {
             Here is your code ✔
           </p>
           {/* window + . pour avoir les emojis */}
-          <button className="ml-auto mr-2 text-sm bg-blue-600 text-white  hover:bg-blue-700 py-1 px-3 rounded">
+          <button
+            onClick={handleCopy}
+            className="ml-auto mr-2 text-sm bg-blue-600 text-white  hover:bg-blue-700 py-1 px-3 rounded"
+          >
             Copy{" "}
           </button>
           <button
@@ -27,7 +46,7 @@ const CodeModal = ({ closeModal }) => {
           </button>
         </div>
         <p className="rounded bg-gray-900 p-5 text-gray-200 font-semibold">
-          le code
+          {`background-image: ${getGradientCSSValue(gradientValue)}`}
         </p>
       </div>
     </div>
